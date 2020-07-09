@@ -1,12 +1,12 @@
 .Side
   .Side__header
-    .UserName
-      %h1 masa
-      .UserName__btn
-        = link_to "#", class: "UserName__btn__list" do
+    .Side__userName
+      = current_user.name
+      .Side__btn
+        = link_to "#", class: "Side__btn__list" do
           = icon('far', 'edit')
           %span<>
-        = link_to "#", class: "UserName__btn__list" do
+        = link_to edit_user_path(current_user), class: "Side__btn__list" do
           = icon('fas','cog')
   .Side__group
     .Side__group__list      
