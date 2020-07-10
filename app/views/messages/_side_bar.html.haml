@@ -3,19 +3,17 @@
     .Side__userName
       = current_user.name
       .Side__btn
-        = link_to "#", class: "Side__btn__list" do
+        = link_to new_group_path, class: "Side__btn__list" do
           = icon('far', 'edit')
           %span<>
         = link_to edit_user_path(current_user), class: "Side__btn__list" do
           = icon('fas','cog')
-  .Side__group
-    .Side__group__list      
-      %h2 techcamp
-      %p まだメッセージがありません  
-    .Side__group__list      
-      %h2 techcamp
-      %p まだメッセージがありません  
-    .Side__group__list      
-      %h2 techcamp
-      %p まだメッセージがありません  
+  .GroupList
+    - current_user.groups.each do |group|
+      .Group      
+        = link_to '#' do
+          .Group__name
+            = group.name
+          .Group__message
+            メッセージはまだありません
     

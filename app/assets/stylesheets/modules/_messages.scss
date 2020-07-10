@@ -37,16 +37,21 @@
    }
   }
 
-  &__group {
+  .GroupList {
     padding: 0 20px;
-    &__list {
-      h2 {
+    .Group {
+      
+      &__name{
         font-size: 15px;
         margin: 20px 0 5px 0;
+        text-decoration: none;
+        color: #fff;
       }
-      p {
+      &__message{
         font-size: 11px;
         margin-bottom: 40px;
+        text-decoration: none;
+        color: #fff;
       }
     }
   }
