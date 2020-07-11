@@ -1,32 +1,25 @@
 .Main
   .Main__header
     .Main__header__title
-      %h2 test
-      %p Member masa
+      %h2= @group.name
+      .Main__header__title__member
+        %p Member:
+        -@group.users.each do |user|
+          %p= user.name
     .Main__header__edit
-      = link_to "#", class: "Main__header__edit__btn" do
+      = link_to edit_group_path(@group), class: "Main__header__edit__btn" do
         Edit
-  .Main__chats
-    .Main__chats__list
-      .Main__chats__list__item
-        %h2 masa
-        %p 2019/11_20(wed) 17:43:01
-      .Main__chats__list__text
-        %p おはよう   
 
-    .Main__chats__list
-      .Main__chats__list__item
-        %h2 masa
-        %p 2019/11_20(wed) 17:43:01
-      .Main__chats__list__text
-        %p おはよう   
+  .Main__chats
+    = render @messages
+
       
   .Form
-    .Form__message
-      %input.Form__message__box{"placeholder": "type a message", "type": "text"}
-      %label{class: "Form__message__icon"}
-        =icon("far","image")
-        %input{type: "file",class: "hidden"}
-    .Form__btn
-      =link_to "#", class: "Form__btn__item" do
-        Send
+    = form_with model: [@group, @message], html: {class: "Form"}, local: true do |f|
+      .Form__message
+        = f.text_field :text, class: 'Form__message__box',placeholder: "type a message"
+        = f.label :image, class: "Form__message__icon" do
+          =icon("far","image")
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: "Form__btn__item" 
+        
