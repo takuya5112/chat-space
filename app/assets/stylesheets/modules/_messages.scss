@@ -102,6 +102,7 @@
   &__chats {
     height: calc(100vh - 190px);
     padding: 35px 40px 0;
+    overflow: scroll;
     &__list {
       padding-bottom: 46px;
       &__item{
@@ -122,6 +123,9 @@
         font-size: 14px;
         color: #434a54;
       }
+      .Message__image {
+        display: block;
+      }
     }
   }
 
@@ -131,7 +135,10 @@
     display: flex;
     align-items: center;
     background: #d2d2d2;
-    width: 100%;
+    .Form1 {
+      display: flex;
+      width: 100%;
+    }
     &__message {
       display: flex;
       align-items: center;
