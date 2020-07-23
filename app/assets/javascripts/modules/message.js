@@ -3,7 +3,7 @@ $(function() {
   function buildHTML(message) {
     if(message.image) {
       let html = 
-                  `<div class= ""Main__chats__list" data-message-id=${message.id}>
+                  `<div class= "Main__chats__list" data-message-id=${message.id}>
                     <div class= "Main__chats__list__item">
                       <div class= "Main_chats_list_name">
                         ${message.user_name}
@@ -13,7 +13,9 @@ $(function() {
                       </div>
                     </div>
                     <div class= "Main__chats__list__text">
+                      <p>
                       ${message.text}
+                      </p>
                       <img class= "Message__image" src= "${message.image}">
                     </div>
                   </div> `
@@ -51,8 +53,8 @@ $(function() {
     .done(function(data) {
       let html = buildHTML(data);
       $(".Main__chats").append(html);
-      $(".Main__chats").animate({ scrollTop: $(".Main__chats")[0].scrollHeight});
       $('form')[0].reset();
+      $(".Main__chats").animate({ scrollTop: $(".Main__chats")[0].scrollHeight});
       $(".Form__btn__item" ).prop('disabled', false);
     })
     .fail(function() {
